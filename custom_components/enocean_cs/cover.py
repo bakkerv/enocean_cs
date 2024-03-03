@@ -10,11 +10,8 @@ from homeassistant.components import enocean
 from homeassistant.components.cover import (
     ATTR_POSITION,
     PLATFORM_SCHEMA,
-    SUPPORT_CLOSE,
-    SUPPORT_OPEN,
-    SUPPORT_SET_POSITION,
-    SUPPORT_STOP,
     CoverEntity,
+    CoverEntityFeature
 )
 from homeassistant.const import CONF_ID, CONF_NAME
 import homeassistant.helpers.config_validation as cv
@@ -31,8 +28,10 @@ CONF_CHANNEL = "channel"
 
 DEFAULT_NAME = "EnOcean Cover"
 DEFAULT_USE_VLD = False
-SUPPORT_ENOCEAN = SUPPORT_CLOSE | SUPPORT_OPEN | SUPPORT_SET_POSITION | SUPPORT_STOP
-VLD_SUPPORT_ENOCEAN = SUPPORT_SET_POSITION | SUPPORT_STOP
+#SUPPORT_ENOCEAN = SUPPORT_CLOSE | SUPPORT_OPEN | SUPPORT_SET_POSITION | SUPPORT_STOP
+SUPPORT_ENOCEAN = CoverEntityFeature.CLOSE | CoverEntityFeature.OPEN | CoverEntityFeature.SET_POSITION | CoverEntityFeature.STOP
+VLD_SUPPORT_ENOCEAN = CoverEntityFeature.SET_POSITION | CoverEntityFeature.STOP
+#VLD_SUPPORT_ENOCEAN = SUPPORT_SET_POSITION | SUPPORT_STOP
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
