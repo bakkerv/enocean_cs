@@ -1,0 +1,8 @@
+{
+    "name": "Enocean CS",
+    "content_in_root": false,
+    "render_readme": true,
+    "hide_default_branch": false,
+    "filename": "enocean_cs.zip",
+    "homeassistant": "2025.1.2"
+}
