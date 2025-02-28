@@ -2,10 +2,11 @@
   "domain": "enocean_cs",
   "name": "EnOcean with Cover Support",
   "documentation": "https://github.com/bakkerv/enocean_cs",
-  "requirements": ["py-enocean==0.52"],
+  "requirements": ["enocean==0.60.1"],
   "codeowners": ["@bakkerv"],
   "config_flow": true,
   "iot_class": "local_push",
   "loggers": ["enocean"],
-  "version": "1.0.0"
+  "single_config_entry": true,
+  "version": "1.1.0"
 }

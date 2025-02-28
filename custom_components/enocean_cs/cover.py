@@ -17,7 +17,7 @@ from homeassistant.const import CONF_ID, CONF_NAME
 import homeassistant.helpers.config_validation as cv
 from .const import COVER_ALL_CHANNELS
 
-from .device import EnOceanEntity
+from .entity import EnOceanEntity
 
 
 _LOGGER = logging.getLogger(__name__)
