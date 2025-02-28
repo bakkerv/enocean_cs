@@ -65,18 +65,14 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 class EnOceanCover(EnOceanEntity, CoverEntity):
     """Representation of an EnOcean cover source."""
 
-    def __init__(self, sender_id, dev_id, dev_name):
+    def __init__(self, sender_id: list[int], dev_id, name: str):
         """Initialize the EnOcean cover source."""
-        super().__init__(dev_id, dev_name)
+        super().__init__(dev_id)
+        self._attr_name = name
         self.sender_id = sender_id
         self.cover_state = STATE_NO_STATE
         self.closed = False
         self.current_position = None
-
-    @property
-    def name(self):
-        """Return the name of the device if any."""
-        return self.dev_name
 
     @property
     def supported_features(self):
@@ -226,16 +222,12 @@ class EnOceanVldCover(EnOceanEntity, CoverEntity):
 
     def __init__(self, sender_id, dev_id, dev_name, channel):
         """Initialize the EnOcean cover source."""
-        super().__init__(dev_id, dev_name)
+        super().__init__(dev_id)
         self.sender_id = sender_id
         self.current_position = None
         self.target_position = None
         self.channel = channel
-
-    @property
-    def name(self):
-        """Return the name of the device if any."""
-        return self.dev_name
+        self._attr_name = dev_name
 
     @property
     def supported_features(self):
